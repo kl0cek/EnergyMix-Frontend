@@ -12,9 +12,11 @@ export default defineConfig([
     extends: [
       js.configs.recommended,
       ...tseslint.configs.recommendedTypeChecked,
-      reactHooks.configs['recommended-latest'],
-      reactRefresh.configs.vite,
     ],
+    plugins: {
+      'react-hooks': reactHooks,
+      'react-refresh': reactRefresh,
+    },
     languageOptions: {
       globals: globals.browser,
       parserOptions: {
@@ -23,6 +25,12 @@ export default defineConfig([
       },
     },
     rules: {
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'warn',
+      'react-refresh/only-export-components': [
+        'warn',
+        { allowConstantExport: true },
+      ],
       '@typescript-eslint/no-unused-vars': [
         'warn',
         { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
@@ -31,7 +39,6 @@ export default defineConfig([
       '@typescript-eslint/no-explicit-any': 'warn',
       'no-console': ['warn', { allow: ['warn', 'error'] }],
       eqeqeq: ['error', 'smart'],
-      'react-hooks/exhaustive-deps': 'warn',
     },
   },
 ])

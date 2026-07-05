@@ -1,12 +1,13 @@
-import { useState } from 'react'
+import { Header } from './components/layout/Header';
+import { MixSection } from './components/mix';
+import { ChargingSection } from './components/charging';
 
 export function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-    <button onClick={() => setCount((count) => count + 1)}>count is: </button>
-      {count}
-    </>
-  )
+    <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 py-8 sm:px-6">
+      <Header />
+      <MixSection />
+      <ChargingSection />
+    </div>
+  );
 }
