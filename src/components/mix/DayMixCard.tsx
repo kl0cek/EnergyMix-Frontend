@@ -5,9 +5,7 @@ import { useTimezone } from '../../hooks';
 import { formatShortDate, localeFor } from '../../utils/date';
 import type { DailyEnergyMix } from '../../types/energy';
 
-const DonutChart = lazy(() =>
-  import('./DonutChart').then((m) => ({ default: m.DonutChart })),
-);
+const DonutChart = lazy(() => import('./DonutChart').then((m) => ({ default: m.DonutChart })));
 
 interface DayMixCardProps {
   day: DailyEnergyMix;
@@ -33,10 +31,7 @@ export function DayMixCard({ day, index }: DayMixCardProps) {
       </div>
 
       <Suspense fallback={<DonutSkeleton />}>
-        <DonutChart
-          mix={day.generationMix}
-          cleanPercent={day.cleanEnergyPercent}
-        />
+        <DonutChart mix={day.generationMix} cleanPercent={day.cleanEnergyPercent} />
       </Suspense>
 
       <div className="flex items-center justify-center gap-5 text-sm">

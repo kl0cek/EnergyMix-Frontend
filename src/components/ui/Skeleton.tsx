@@ -5,10 +5,5 @@ interface SkeletonProps {
 }
 
 export function Skeleton({ className }: SkeletonProps) {
-  return (
-    <div
-      aria-hidden="true"
-      className={clsx('animate-pulse rounded-md bg-line', className)}
-    />
-  );
+  return <div aria-hidden="true" className={clsx('animate-pulse rounded-md bg-line', className)} />;
 }

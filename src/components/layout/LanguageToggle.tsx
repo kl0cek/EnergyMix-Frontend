@@ -20,9 +20,7 @@ export function LanguageToggle() {
           onClick={() => void i18n.changeLanguage(lng)}
           className={clsx(
             'px-2.5 py-1 text-xs font-semibold uppercase transition-colors',
-            current === lng
-              ? 'bg-brand text-on-brand'
-              : 'bg-card text-muted hover:text-ink',
+            current === lng ? 'bg-brand text-on-brand' : 'bg-card text-muted hover:text-ink'
           )}
         >
           {lng}
