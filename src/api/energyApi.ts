@@ -1,12 +1,6 @@
 import type { ChargingWindowResult, DailyEnergyMix } from '../types/energy';
-import { mockChargingWindow, mockEnergyMix } from './mockData';
 
 const API_URL = import.meta.env.VITE_API_URL as string | undefined;
-const MOCK_LATENCY_MS = 600;
-
-function delay<T>(value: T): Promise<T> {
-  return new Promise((resolve) => setTimeout(() => resolve(value), MOCK_LATENCY_MS));
-}
 
 async function request<T>(path: string): Promise<T> {
   const res = await fetch(`${API_URL}${path}`);
@@ -19,11 +13,9 @@ async function request<T>(path: string): Promise<T> {
 }
 
 export function fetchEnergyMix(): Promise<DailyEnergyMix[]> {
-  if (!API_URL) return delay(mockEnergyMix());
   return request<DailyEnergyMix[]>('/api/energy/mix');
 }
 
 export function fetchChargingWindow(hours: number): Promise<ChargingWindowResult> {
-  if (!API_URL) return delay(mockChargingWindow(hours));
   return request<ChargingWindowResult>(`/api/energy/charging-window?hours=${hours}`);
 }

@@ -1,6 +1,6 @@
 import { clsx } from 'clsx'
 import { Card } from '../ui'
-import { FUELS } from '../../config/fuels'
+import { FUELS } from '../../utils/fuels'
 
 export function FuelLegend() {
   return (

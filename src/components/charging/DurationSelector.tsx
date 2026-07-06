@@ -21,7 +21,7 @@ export function DurationSelector({ value, onChange, min = 1, max = 6 }: Duration
           className={clsx(
             'tnum rounded-xl py-3 text-sm font-semibold transition-colors',
             hours === value
-              ? 'bg-brand text-white'
+              ? 'bg-brand text-on-brand'
               : 'border border-line bg-card text-ink hover:border-brand/50'
           )}
         >
