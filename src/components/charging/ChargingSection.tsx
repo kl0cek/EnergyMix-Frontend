@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useChargingWindow } from '../../hooks';
-import { Badge, Button, Card, ErrorState, Spinner } from '../ui';
+import { Badge, Button, Card, ErrorState, Skeleton, Spinner } from '../ui';
 import { DurationSelector } from './DurationSelector';
 import { WindowResult } from './WindowResult';
 import { CleanEnergyStrip } from './CleanEnergyStrip';
@@ -51,8 +51,14 @@ export function ChargingSection() {
         {status === 'error' ? (
           <ErrorState message={error} onRetry={() => calculate(hours)} />
         ) : isLoading && !data ? (
-          <div className="flex flex-1 items-center justify-center">
-            <Spinner className="h-8 w-8" />
+          <div className="flex flex-col gap-5">
+            <Skeleton className="h-4 w-28" />
+            <Skeleton className="h-12 w-40" />
+            <div className="grid grid-cols-2 gap-3">
+              <Skeleton className="h-20" />
+              <Skeleton className="h-20" />
+            </div>
+            <Skeleton className="mt-auto h-16 w-full" />
           </div>
         ) : data ? (
           <>

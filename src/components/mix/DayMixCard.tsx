@@ -1,9 +1,13 @@
+import { lazy, Suspense } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Card } from '../ui';
+import { Card, DonutSkeleton } from '../ui';
 import { useTimezone } from '../../hooks';
-import { DonutChart } from './DonutChart';
 import { formatShortDate, localeFor } from '../../utils/date';
 import type { DailyEnergyMix } from '../../types/energy';
+
+const DonutChart = lazy(() =>
+  import('./DonutChart').then((m) => ({ default: m.DonutChart })),
+);
 
 interface DayMixCardProps {
   day: DailyEnergyMix;
@@ -28,7 +32,12 @@ export function DayMixCard({ day, index }: DayMixCardProps) {
         </span>
       </div>
 
-      <DonutChart mix={day.generationMix} cleanPercent={day.cleanEnergyPercent} />
+      <Suspense fallback={<DonutSkeleton />}>
+        <DonutChart
+          mix={day.generationMix}
+          cleanPercent={day.cleanEnergyPercent}
+        />
+      </Suspense>
 
       <div className="flex items-center justify-center gap-5 text-sm">
         <span className="inline-flex items-center gap-1.5">
