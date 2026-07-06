@@ -1,19 +1,7 @@
 import { useEnergyMix } from '../../hooks';
-import { Card, ErrorState, Spinner } from '../ui';
-import { DayMixCard } from './DayMixCard';
-import { FuelLegend } from './FuelLegend';
+import { ErrorState, LoadingGrid } from '../ui/index';
+import { DayMixCard, FuelLegend } from './index';
 
-function LoadingGrid() {
-  return (
-    <div className="grid gap-5 md:grid-cols-3">
-      {[0, 1, 2].map((i) => (
-        <Card key={i} className="flex h-72 items-center justify-center">
-          <Spinner className="h-8 w-8" />
-        </Card>
-      ))}
-    </div>
-  );
-}
 
 export function MixSection() {
   const { data, status, error, reload } = useEnergyMix();

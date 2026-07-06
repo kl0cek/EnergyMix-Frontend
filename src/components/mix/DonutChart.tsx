@@ -1,58 +1,62 @@
-import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip } from 'recharts';
-import { FUELS } from '../../config/fuels';
-import type { GenerationMix } from '../../types/energy';
+import { useState } from 'react'
+import { Pie, PieChart, ResponsiveContainer } from 'recharts'
+import { FUELS } from '../../config/fuels'
+import type { GenerationMix } from '../../types/energy'
+import { RenderPieCallout } from './RenderPieCallout'
+import type { PieCalloutProps } from './RenderPieCallout'
 
 interface DonutChartProps {
-  mix: GenerationMix;
-  cleanPercent: number;
+  mix: GenerationMix
+  cleanPercent: number
 }
 
-interface TooltipEntry {
-  name?: string;
-  value?: number;
-}
-
-function ChartTooltip({ active, payload }: { active?: boolean; payload?: TooltipEntry[] }) {
-  if (!active || !payload?.length) return null;
-  const entry = payload[0];
-  return (
-    <div className="rounded-lg border border-line bg-card px-3 py-1.5 text-xs shadow-sm">
-      <span className="font-medium text-ink">{entry.name}</span>{' '}
-      <span className="tnum text-muted">{entry.value}%</span>
-    </div>
-  );
+interface Slice {
+  key: string
+  label: string
+  value: number
+  fill: string
 }
 
 export function DonutChart({ mix, cleanPercent }: DonutChartProps) {
-  const data = FUELS.map((fuel) => ({
+  const [active, setActive] = useState<number | undefined>(undefined)
+
+  const slices: Slice[] = FUELS.map((fuel) => ({
     key: fuel.key,
     label: fuel.label,
     value: mix[fuel.key],
-    color: fuel.color,
-  })).filter((slice) => slice.value > 0);
+    fill: fuel.color,
+  })).filter((slice) => slice.value > 0)
+
+  const data = slices.map((slice, index) => ({
+    ...slice,
+    fillOpacity: active === undefined || active === index ? 1 : 0.35,
+  }))
 
   return (
-    <div className="relative mx-auto aspect-square w-full max-w-55">
+    <div className="relative mx-auto aspect-square w-full max-w-60 [&_svg]:overflow-visible">
       <ResponsiveContainer width="100%" height="100%">
         <PieChart>
           <Pie
             data={data}
             dataKey="value"
             nameKey="label"
-            innerRadius="66%"
-            outerRadius="100%"
-            paddingAngle={2}
+            innerRadius="60%"
+            outerRadius="80%"
+            paddingAngle={0.6}
             startAngle={90}
             endAngle={-270}
             stroke="var(--color-card)"
-            strokeWidth={2}
+            strokeWidth={1}
             isAnimationActive={false}
-          >
-            {data.map((slice) => (
-              <Cell key={slice.key} fill={slice.color} />
-            ))}
-          </Pie>
-          <Tooltip content={<ChartTooltip />} />
+            labelLine={false}
+            label={(props) =>
+              (props as PieCalloutProps).index === active
+                ? <RenderPieCallout {...props as PieCalloutProps} />
+                : null
+            }
+            onMouseEnter={(_, index) => setActive(index)}
+            onMouseLeave={() => setActive(undefined)}
+          />
         </PieChart>
       </ResponsiveContainer>
 
@@ -61,8 +65,10 @@ export function DonutChart({ mix, cleanPercent }: DonutChartProps) {
           {Math.round(cleanPercent)}
           <span className="align-top text-xl">%</span>
         </span>
-        <span className="text-xs font-medium uppercase tracking-wide text-muted">Czysta</span>
+        <span className="text-xs font-medium uppercase tracking-wide text-muted">
+          Czysta
+        </span>
       </div>
     </div>
-  );
+  )
 }
