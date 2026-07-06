@@ -70,5 +70,5 @@ test('shows skeletons while loading, then the full dashboard', async ({
   await expect(page.getByRole('button', { name: 'Recalculate' })).toBeVisible()
   await expect(page.getByText('Best window')).toBeVisible()
   await expect(page.getByText('73%')).toBeVisible()
-  await expect(page.getByText('Clean-energy forecast · next 48 h')).toBeVisible()
+  await expect(page.getByText('48 h forecast · hover to check any slot')).toBeVisible()
 })

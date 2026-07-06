@@ -37,7 +37,7 @@
     "avgClean": "avg clean energy",
     "start": "Start",
     "end": "End",
-    "forecastCaption": "Clean-energy forecast · next 48 h"
+    "forecastCaption": "48 h forecast · hover to check any slot"
   },
   "state": {
     "loading": "Loading",

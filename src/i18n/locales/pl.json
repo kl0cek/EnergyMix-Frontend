@@ -37,7 +37,7 @@
     "avgClean": "śr. czystej energii",
     "start": "Start",
     "end": "Koniec",
-    "forecastCaption": "Prognoza czystej energii · najbliższe 48 h"
+    "forecastCaption": "Prognoza 48 h · najedź, aby sprawdzić dowolne okno"
   },
   "state": {
     "loading": "Ładowanie",
