@@ -1,22 +1,24 @@
-import { Badge, ThemeToggle } from '../ui';
+import { useTranslation } from 'react-i18next';
+import { Badge, LanguageToggle, ThemeToggle } from '../ui';
 
 export function Header() {
+  const { t } = useTranslation();
+
   return (
-    <header className="flex items-center justify-between gap-4">
+    <header className="flex flex-wrap items-center justify-between gap-4">
       <div className="flex items-center gap-3">
         <div>
           <div className="text-xl font-bold text-ink">EnergyMix</div>
-          <div className="text-sm text-muted">
-            Miks energetyczny - Wielka Brytania
-          </div>
+          <div className="text-sm text-muted">{t('header.subtitle')}</div>
         </div>
       </div>
 
       <div className="flex items-center gap-3">
         <Badge variant="live">
           <span className="h-2 w-2 rounded-full bg-brand" />
-          Dane na żywo
+          {t('header.live')}
         </Badge>
+        <LanguageToggle />
         <ThemeToggle />
       </div>
     </header>

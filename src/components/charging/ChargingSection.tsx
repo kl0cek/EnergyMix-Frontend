@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useChargingWindow } from '../../hooks';
 import { Badge, Button, Card, ErrorState, Spinner } from '../ui';
 import { DurationSelector } from './DurationSelector';
@@ -8,6 +9,7 @@ import { CleanEnergyStrip } from './CleanEnergyStrip';
 const DEFAULT_HOURS = 3;
 
 export function ChargingSection() {
+  const { t } = useTranslation();
   const [hours, setHours] = useState(DEFAULT_HOURS);
   const { data, status, error, calculate } = useChargingWindow(DEFAULT_HOURS);
 
@@ -16,20 +18,19 @@ export function ChargingSection() {
   return (
     <section className="grid gap-5 lg:grid-cols-2">
       <Card className="flex flex-col gap-5 p-6">
-        <Badge variant="clean">Ładowanie EV</Badge>
+        <Badge variant="clean">{t('charging.badge')}</Badge>
 
         <div>
-          <h2 className="text-2xl font-bold text-ink">Optymalne okno ładowania</h2>
-          <p className="mt-1 text-muted">
-            Wybierz czas ładowania. Znajdziemy przedział w najbliższych 2 dniach o najwyższym
-            udziale czystej energii.
-          </p>
+          <h2 className="text-2xl font-bold text-ink">{t('charging.title')}</h2>
+          <p className="mt-1 text-muted">{t('charging.subtitle')}</p>
         </div>
 
         <div className="flex flex-col gap-2">
           <div className="flex items-center justify-between text-sm">
-            <span className="font-medium text-ink">Czas ładowania</span>
-            <span className="tnum font-semibold text-brand-strong">{hours} h</span>
+            <span className="font-medium text-ink">{t('charging.duration')}</span>
+            <span className="tnum font-semibold text-brand-strong">
+              {hours} {t('charging.hoursShort')}
+            </span>
           </div>
           <DurationSelector value={hours} onChange={setHours} />
         </div>
@@ -38,10 +39,10 @@ export function ChargingSection() {
           {isLoading ? (
             <>
               <Spinner className="h-4 w-4" />
-              Liczenie…
+              {t('charging.loading')}
             </>
           ) : (
-            'Przelicz ponownie'
+            t('charging.recalc')
           )}
         </Button>
       </Card>

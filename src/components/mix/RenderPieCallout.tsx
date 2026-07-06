@@ -1,26 +1,26 @@
 export interface PieCalloutProps {
-  cx: number
-  cy: number
-  midAngle: number
-  outerRadius: number
-  index: number
-  payload: { label: string; value: number; fill: string }
+  cx: number;
+  cy: number;
+  midAngle: number;
+  outerRadius: number;
+  index: number;
+  payload: { label: string; value: number; fill: string };
 }
 
-const RAD = Math.PI / 180
+const RAD = Math.PI / 180;
 
 export function RenderPieCallout(props: PieCalloutProps) {
-  const { cx, cy, midAngle, outerRadius, payload } = props
-  const cos = Math.cos(-RAD * midAngle)
-  const sin = Math.sin(-RAD * midAngle)
-  const toRight = cos >= 0
+  const { cx, cy, midAngle, outerRadius, payload } = props;
+  const cos = Math.cos(-RAD * midAngle);
+  const sin = Math.sin(-RAD * midAngle);
+  const toRight = cos >= 0;
 
-  const sx = cx + (outerRadius + 2) * cos
-  const sy = cy + (outerRadius + 2) * sin
-  const mx = cx + (outerRadius + 14) * cos
-  const my = cy + (outerRadius + 14) * sin
-  const ex = mx + (toRight ? 14 : -14)
-  const ey = my
+  const sx = cx + (outerRadius + 2) * cos;
+  const sy = cy + (outerRadius + 2) * sin;
+  const mx = cx + (outerRadius + 14) * cos;
+  const my = cy + (outerRadius + 14) * sin;
+  const ex = mx + (toRight ? 14 : -14);
+  const ey = my;
 
   return (
     <g>
@@ -41,5 +41,5 @@ export function RenderPieCallout(props: PieCalloutProps) {
         {payload.label} · {payload.value}%
       </text>
     </g>
-  )
+  );
 }

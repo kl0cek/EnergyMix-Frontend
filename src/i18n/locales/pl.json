@@ -1,0 +1,54 @@
+{
+  "header": {
+    "subtitle": "Miks energetyczny · Wielka Brytania",
+    "live": "Dane na żywo"
+  },
+  "mix": {
+    "title": "Miks energetyczny — 3 dni",
+    "subtitle": "Średni udział źródeł energii. Czysta energia = biomasa, atom, woda, wiatr, słońce.",
+    "clean": "Czysta",
+    "fossil": "Kopalne"
+  },
+  "day": {
+    "today": "Dzisiaj",
+    "tomorrow": "Jutro",
+    "dayAfter": "Pojutrze"
+  },
+  "fuels": {
+    "wind": "Wiatr",
+    "nuclear": "Atom",
+    "solar": "Słońce",
+    "hydro": "Woda",
+    "biomass": "Biomasa",
+    "gas": "Gaz",
+    "imports": "Import",
+    "coal": "Węgiel",
+    "other": "Inne"
+  },
+  "charging": {
+    "badge": "Ładowanie EV",
+    "title": "Optymalne okno ładowania",
+    "subtitle": "Wybierz czas ładowania. Znajdziemy przedział w najbliższych 2 dniach o najwyższym udziale czystej energii.",
+    "duration": "Czas ładowania",
+    "hoursShort": "h",
+    "recalc": "Przelicz ponownie",
+    "loading": "Liczenie…",
+    "bestWindow": "Najlepsze okno",
+    "avgClean": "śr. czystej energii",
+    "start": "Start",
+    "end": "Koniec",
+    "forecastCaption": "Prognoza czystej energii · najbliższe 48 h"
+  },
+  "state": {
+    "loading": "Ładowanie",
+    "errorTitle": "Nie udało się pobrać danych",
+    "retry": "Spróbuj ponownie"
+  },
+  "theme": {
+    "toLight": "Włącz jasny motyw",
+    "toDark": "Włącz ciemny motyw"
+  },
+  "lang": {
+    "switch": "Zmień język"
+  }
+}

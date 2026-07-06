@@ -2,21 +2,20 @@ import type { FuelKey } from '../types/energy';
 
 export interface FuelMeta {
   key: FuelKey;
-  label: string;
   clean: boolean;
   color: string;
 }
 
 export const FUELS: readonly FuelMeta[] = [
-  { key: 'wind', label: 'Wiatr', clean: true, color: '#22a55b' },
-  { key: 'nuclear', label: 'Atom', clean: true, color: '#15703a' },
-  { key: 'solar', label: 'Słońce', clean: true, color: '#8fca3f' },
-  { key: 'hydro', label: 'Woda', clean: true, color: '#2bb3a3' },
-  { key: 'biomass', label: 'Biomasa', clean: true, color: '#b6c23f' },
-  { key: 'gas', label: 'Gaz', clean: false, color: '#9aa0a6' },
-  { key: 'imports', label: 'Import', clean: false, color: '#c9bfa8' },
-  { key: 'coal', label: 'Węgiel', clean: false, color: '#4b4b4b' },
-  { key: 'other', label: 'Inne', clean: false, color: '#d9d9d9' },
+  { key: 'wind', clean: true, color: '#22a55b' },
+  { key: 'nuclear', clean: true, color: '#15703a' },
+  { key: 'solar', clean: true, color: '#8fca3f' },
+  { key: 'hydro', clean: true, color: '#2bb3a3' },
+  { key: 'biomass', clean: true, color: '#b6c23f' },
+  { key: 'gas', clean: false, color: '#9aa0a6' },
+  { key: 'imports', clean: false, color: '#c9bfa8' },
+  { key: 'coal', clean: false, color: '#4b4b4b' },
+  { key: 'other', clean: false, color: '#d9d9d9' },
 ];
 
 export const FUEL_ORDER: readonly FuelKey[] = FUELS.map((f) => f.key);

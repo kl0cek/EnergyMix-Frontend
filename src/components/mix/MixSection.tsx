@@ -1,18 +1,17 @@
+import { useTranslation } from 'react-i18next';
 import { useEnergyMix } from '../../hooks';
 import { ErrorState, LoadingGrid } from '../ui/index';
 import { DayMixCard, FuelLegend } from './index';
 
-
 export function MixSection() {
+  const { t } = useTranslation();
   const { data, status, error, reload } = useEnergyMix();
 
   return (
     <section className="flex flex-col gap-5">
       <header>
-        <h2 className="text-2xl font-bold text-ink sm:text-3xl">Miks energetyczny — 3 dni</h2>
-        <p className="mt-1 text-muted">
-          Średni udział źródeł energii. Czysta energia = biomasa, atom, woda, wiatr, słońce.
-        </p>
+        <h2 className="text-2xl font-bold text-ink sm:text-3xl">{t('mix.title')}</h2>
+        <p className="mt-1 text-muted">{t('mix.subtitle')}</p>
       </header>
 
       {(status === 'loading' || status === 'idle') && <LoadingGrid />}

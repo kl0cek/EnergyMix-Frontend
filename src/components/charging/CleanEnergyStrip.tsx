@@ -1,5 +1,6 @@
 import { clsx } from 'clsx';
-import { formatTime } from '../../utils/date';
+import { useTranslation } from 'react-i18next';
+import { formatTime, localeFor } from '../../utils/date';
 import type { ChargingWindowResult } from '../../types/energy';
 
 interface CleanEnergyStripProps {
@@ -7,8 +8,11 @@ interface CleanEnergyStripProps {
 }
 
 export function CleanEnergyStrip({ data }: CleanEnergyStripProps) {
+  const { t, i18n } = useTranslation();
+
   if (!data.series || data.series.length === 0) return null;
 
+  const locale = localeFor(i18n.language);
   const windowStart = new Date(data.start).getTime();
   const windowEnd = new Date(data.end).getTime();
   const max = Math.max(...data.series.map((point) => point.cleanPercent));
@@ -22,14 +26,14 @@ export function CleanEnergyStrip({ data }: CleanEnergyStripProps) {
           return (
             <div
               key={point.time}
-              title={`${formatTime(point.time)} · ${point.cleanPercent}%`}
+              title={`${formatTime(point.time, locale)} · ${point.cleanPercent}%`}
               className={clsx('min-w-0 flex-1 rounded-sm', inWindow ? 'bg-brand' : 'bg-line')}
               style={{ height: `${(point.cleanPercent / max) * 100}%` }}
             />
           );
         })}
       </div>
-      <p className="text-xs text-muted">Prognoza czystej energii - najbliższe 48 h</p>
+      <p className="text-xs text-muted">{t('charging.forecastCaption')}</p>
     </div>
   );
 }

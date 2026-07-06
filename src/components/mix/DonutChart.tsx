@@ -1,36 +1,38 @@
-import { useState } from 'react'
-import { Pie, PieChart, ResponsiveContainer } from 'recharts'
-import { FUELS } from '../../utils/fuels'
-import type { GenerationMix } from '../../types/energy'
-import { RenderPieCallout } from './RenderPieCallout'
-import type { PieCalloutProps } from './RenderPieCallout'
+import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { Pie, PieChart, ResponsiveContainer } from 'recharts';
+import { FUELS } from '../../utils/fuels';
+import type { GenerationMix } from '../../types/energy';
+import { RenderPieCallout } from './RenderPieCallout';
+import type { PieCalloutProps } from './RenderPieCallout';
 
 interface DonutChartProps {
-  mix: GenerationMix
-  cleanPercent: number
+  mix: GenerationMix;
+  cleanPercent: number;
 }
 
 interface Slice {
-  key: string
-  label: string
-  value: number
-  fill: string
+  key: string;
+  label: string;
+  value: number;
+  fill: string;
 }
 
 export function DonutChart({ mix, cleanPercent }: DonutChartProps) {
-  const [active, setActive] = useState<number | undefined>(undefined)
+  const { t } = useTranslation();
+  const [active, setActive] = useState<number | undefined>(undefined);
 
   const slices: Slice[] = FUELS.map((fuel) => ({
     key: fuel.key,
-    label: fuel.label,
+    label: t(`fuels.${fuel.key}`),
     value: mix[fuel.key],
     fill: fuel.color,
-  })).filter((slice) => slice.value > 0)
+  })).filter((slice) => slice.value > 0);
 
   const data = slices.map((slice, index) => ({
     ...slice,
     fillOpacity: active === undefined || active === index ? 1 : 0.35,
-  }))
+  }));
 
   return (
     <div className="relative mx-auto aspect-square w-full max-w-60 [&_svg]:overflow-visible">
@@ -50,9 +52,9 @@ export function DonutChart({ mix, cleanPercent }: DonutChartProps) {
             isAnimationActive={false}
             labelLine={false}
             label={(props) =>
-              (props as PieCalloutProps).index === active
-                ? <RenderPieCallout {...props as PieCalloutProps} />
-                : null
+              (props as PieCalloutProps).index === active ? (
+                <RenderPieCallout {...(props as PieCalloutProps)} />
+              ) : null
             }
             onMouseEnter={(_, index) => setActive(index)}
             onMouseLeave={() => setActive(undefined)}
@@ -66,9 +68,9 @@ export function DonutChart({ mix, cleanPercent }: DonutChartProps) {
           <span className="align-top text-xl">%</span>
         </span>
         <span className="text-xs font-medium uppercase tracking-wide text-muted">
-          Czysta
+          {t('mix.clean')}
         </span>
       </div>
     </div>
-  )
+  );
 }

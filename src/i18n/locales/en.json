@@ -1,0 +1,54 @@
+{
+  "header": {
+    "subtitle": "Energy mix · United Kingdom",
+    "live": "Live data"
+  },
+  "mix": {
+    "title": "Energy mix — 3 days",
+    "subtitle": "Average share of energy sources. Clean energy = biomass, nuclear, hydro, wind, solar.",
+    "clean": "Clean",
+    "fossil": "Fossil"
+  },
+  "day": {
+    "today": "Today",
+    "tomorrow": "Tomorrow",
+    "dayAfter": "Day after"
+  },
+  "fuels": {
+    "wind": "Wind",
+    "nuclear": "Nuclear",
+    "solar": "Solar",
+    "hydro": "Hydro",
+    "biomass": "Biomass",
+    "gas": "Gas",
+    "imports": "Imports",
+    "coal": "Coal",
+    "other": "Other"
+  },
+  "charging": {
+    "badge": "EV charging",
+    "title": "Optimal charging window",
+    "subtitle": "Pick a charging duration. We'll find the slot in the next 2 days with the highest clean-energy share.",
+    "duration": "Charging time",
+    "hoursShort": "h",
+    "recalc": "Recalculate",
+    "loading": "Calculating…",
+    "bestWindow": "Best window",
+    "avgClean": "avg clean energy",
+    "start": "Start",
+    "end": "End",
+    "forecastCaption": "Clean-energy forecast · next 48 h"
+  },
+  "state": {
+    "loading": "Loading",
+    "errorTitle": "Failed to load data",
+    "retry": "Try again"
+  },
+  "theme": {
+    "toLight": "Switch to light theme",
+    "toDark": "Switch to dark theme"
+  },
+  "lang": {
+    "switch": "Change language"
+  }
+}

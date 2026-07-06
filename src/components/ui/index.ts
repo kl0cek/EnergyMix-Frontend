@@ -5,3 +5,4 @@ export { Spinner } from './Spinner';
 export { ErrorState } from './ErrorState';
 export { LoadingGrid } from './LoadingGrid';
 export { ThemeToggle } from './ThemeToggle';
+export { LanguageToggle } from './LanguageToggle';
