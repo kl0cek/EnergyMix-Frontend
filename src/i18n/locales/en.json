@@ -50,5 +50,9 @@
   },
   "lang": {
     "switch": "Change language"
+  },
+  "tz": {
+    "local": "Local",
+    "switch": "Change time zone"
   }
 }

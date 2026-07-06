@@ -1,5 +1,6 @@
 import { clsx } from 'clsx';
 import { useTranslation } from 'react-i18next';
+import { useTimezone } from '../../hooks';
 import { formatTime, localeFor } from '../../utils/date';
 import type { ChargingWindowResult } from '../../types/energy';
 
@@ -9,6 +10,7 @@ interface CleanEnergyStripProps {
 
 export function CleanEnergyStrip({ data }: CleanEnergyStripProps) {
   const { t, i18n } = useTranslation();
+  const { timeZone } = useTimezone();
 
   if (!data.series || data.series.length === 0) return null;
 
@@ -26,7 +28,7 @@ export function CleanEnergyStrip({ data }: CleanEnergyStripProps) {
           return (
             <div
               key={point.time}
-              title={`${formatTime(point.time, locale)} · ${point.cleanPercent}%`}
+              title={`${formatTime(point.time, locale, timeZone)} · ${point.cleanPercent}%`}
               className={clsx('min-w-0 flex-1 rounded-sm', inWindow ? 'bg-brand' : 'bg-line')}
               style={{ height: `${(point.cleanPercent / max) * 100}%` }}
             />

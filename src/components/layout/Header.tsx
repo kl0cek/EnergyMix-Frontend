@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { Badge, LanguageToggle, ThemeToggle } from '../ui';
+import { Badge, LanguageToggle, ThemeToggle, TimezoneToggle } from '../ui';
 
 export function Header() {
   const { t } = useTranslation();
@@ -18,6 +18,7 @@ export function Header() {
           <span className="h-2 w-2 rounded-full bg-brand" />
           {t('header.live')}
         </Badge>
+        <TimezoneToggle />
         <LanguageToggle />
         <ThemeToggle />
       </div>

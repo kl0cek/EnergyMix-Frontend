@@ -50,5 +50,9 @@
   },
   "lang": {
     "switch": "Zmień język"
+  },
+  "tz": {
+    "local": "Lokalny",
+    "switch": "Zmień strefę czasową"
   }
 }

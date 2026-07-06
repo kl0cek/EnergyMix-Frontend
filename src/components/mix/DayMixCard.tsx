@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { Card } from '../ui';
+import { useTimezone } from '../../hooks';
 import { DonutChart } from './DonutChart';
 import { formatShortDate, localeFor } from '../../utils/date';
 import type { DailyEnergyMix } from '../../types/energy';
@@ -13,6 +14,7 @@ const DAY_KEYS = ['day.today', 'day.tomorrow', 'day.dayAfter'] as const;
 
 export function DayMixCard({ day, index }: DayMixCardProps) {
   const { t, i18n } = useTranslation();
+  const { timeZone } = useTimezone();
   const clean = Math.round(day.cleanEnergyPercent);
   const fossil = 100 - clean;
   const dayLabel = DAY_KEYS[index] ? t(DAY_KEYS[index]) : '';
@@ -22,7 +24,7 @@ export function DayMixCard({ day, index }: DayMixCardProps) {
       <div className="flex items-baseline justify-between">
         <h3 className="text-lg font-semibold text-ink">{dayLabel}</h3>
         <span className="tnum text-sm text-muted">
-          {formatShortDate(day.date, localeFor(i18n.language))}
+          {formatShortDate(day.date, localeFor(i18n.language), timeZone)}
         </span>
       </div>
 

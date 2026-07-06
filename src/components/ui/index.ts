@@ -6,3 +6,4 @@ export { ErrorState } from './ErrorState';
 export { LoadingGrid } from './LoadingGrid';
 export { ThemeToggle } from './ThemeToggle';
 export { LanguageToggle } from './LanguageToggle';
+export { TimezoneToggle } from './TimezoneToggle';
