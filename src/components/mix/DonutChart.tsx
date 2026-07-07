@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Pie, PieChart, ResponsiveContainer } from 'recharts';
-import { FUELS } from '../../utils/fuels';
-import type { GenerationMix } from '../../types/energy';
+import { FUELS } from '@/utils/fuels';
+import type { GenerationMix } from '@/types/energy';
 import { RenderPieCallout } from './RenderPieCallout';
 import type { PieCalloutProps } from './RenderPieCallout';
 

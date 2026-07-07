@@ -1,6 +1,6 @@
 import { Clock } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { useTimezone } from '../../hooks/useTimezone';
+import { useTimezone } from '@/hooks';
 
 export function TimezoneToggle() {
   const { t } = useTranslation();

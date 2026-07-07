@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
-import { useTimezone } from '../../hooks';
-import { formatTime, formatWeekdayDate, localeFor } from '../../utils/date';
-import type { ChargingWindowResult } from '../../types/energy';
+import { useTimezone } from '@/hooks';
+import { formatTime, formatWeekdayDate, localeFor } from '@/utils/date';
+import type { ChargingWindowResult } from '@/types/energy';
 
 interface WindowResultProps {
   data: ChargingWindowResult;

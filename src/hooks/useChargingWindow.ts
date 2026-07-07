@@ -1,5 +1,5 @@
-import { fetchChargingWindow } from '../api/energyApi';
-import type { ChargingWindowResult } from '../types/energy';
+import { fetchChargingWindow } from '@/api/energyApi';
+import type { ChargingWindowResult } from '@/types/energy';
 import type { AsyncStatus } from './types';
 import { useLiveQuery } from './useLiveQuery';
 

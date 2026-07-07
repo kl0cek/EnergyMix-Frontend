@@ -1,9 +1,9 @@
 import { lazy, Suspense } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Card, DonutSkeleton } from '../ui';
-import { useTimezone } from '../../hooks';
-import { formatShortDate, localeFor } from '../../utils/date';
-import type { DailyEnergyMix } from '../../types/energy';
+import { Card, DonutSkeleton } from '@/components/ui';
+import { useTimezone } from '@/hooks';
+import { formatShortDate, localeFor } from '@/utils/date';
+import type { DailyEnergyMix } from '@/types/energy';
 
 const DonutChart = lazy(() => import('./DonutChart').then((m) => ({ default: m.DonutChart })));
 

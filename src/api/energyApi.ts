@@ -1,4 +1,4 @@
-import type { ChargingWindowResult, DailyEnergyMix } from '../types/energy';
+import type { ChargingWindowResult, DailyEnergyMix } from '@/types/energy';
 
 const API_URL = import.meta.env.VITE_API_URL as string | undefined;
 

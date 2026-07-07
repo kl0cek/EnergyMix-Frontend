@@ -1,4 +1,4 @@
-import type { FuelKey } from '../types/energy';
+import type { FuelKey } from '@/types/energy';
 
 export interface FuelMeta {
   key: FuelKey;

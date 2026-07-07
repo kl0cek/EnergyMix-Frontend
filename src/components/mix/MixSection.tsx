@@ -1,7 +1,8 @@
 import { useTranslation } from 'react-i18next';
-import { useEnergyMix } from '../../hooks';
-import { ErrorState, LoadingGrid } from '../ui/index';
-import { DayMixCard, FuelLegend } from './index';
+import { useEnergyMix } from '@/hooks';
+import { ErrorState, LoadingGrid } from '@/components/ui';
+import { DayMixCard } from './DayMixCard';
+import { FuelLegend } from './FuelLegend';
 
 export function MixSection() {
   const { t } = useTranslation();

@@ -1,6 +1,6 @@
-import { Header } from '../components/layout/Header';
-import { MixSection } from '../components/mix';
-import { ChargingSection } from '../components/charging';
+import { Header } from '@/components/layout';
+import { MixSection } from '@/components/mix';
+import { ChargingSection } from '@/components/charging';
 
 export function MainPage() {
   return (

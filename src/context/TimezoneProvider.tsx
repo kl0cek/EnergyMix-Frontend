@@ -1,6 +1,6 @@
 import { useCallback, useMemo, useState } from 'react';
 import type { ReactNode } from 'react';
-import { nextTimeZone, resolveTimeZone, type TimeZonePref } from '../utils/timezone';
+import { nextTimeZone, resolveTimeZone, type TimeZonePref } from '@/utils/timezone';
 import { TimezoneContext } from './TimezoneContext';
 
 export function TimezoneProvider({ children }: { children: ReactNode }) {

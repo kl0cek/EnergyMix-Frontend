@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import type { ReactNode } from 'react';
-import { getInitialTheme, storeTheme, type Theme } from '../utils/theme';
+import { getInitialTheme, storeTheme, type Theme } from '@/utils/theme';
 import { ThemeContext } from './ThemeContext';
 
 export function ThemeProvider({ children }: { children: ReactNode }) {

@@ -1,6 +1,8 @@
 import { useTranslation } from 'react-i18next';
-import { Badge } from '../ui';
-import { LanguageToggle, TimezoneToggle, ThemeToggle } from './index';
+import { Badge } from '@/components/ui';
+import { LanguageToggle } from './LanguageToggle';
+import { ThemeToggle } from './ThemeToggle';
+import { TimezoneToggle } from './TimezoneToggle';
 export function Header() {
   const { t } = useTranslation();
 

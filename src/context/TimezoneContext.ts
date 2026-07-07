@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import type { TimeZonePref } from '../utils/timezone';
+import type { TimeZonePref } from '@/utils/timezone';
 
 export interface TimezoneContextValue {
   preference: TimeZonePref;

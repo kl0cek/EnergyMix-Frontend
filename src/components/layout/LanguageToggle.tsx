@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { clsx } from 'clsx';
-import { SUPPORTED_LANGUAGES } from '../../i18n';
+import { SUPPORTED_LANGUAGES } from '@/i18n';
 
 export function LanguageToggle() {
   const { i18n, t } = useTranslation();

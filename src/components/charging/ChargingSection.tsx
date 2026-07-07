@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useChargingWindow } from '../../hooks';
-import { Badge, Button, Card, ErrorState, Skeleton, Spinner } from '../ui';
+import { useChargingWindow } from '@/hooks';
+import { Badge, Button, Card, ErrorState, Skeleton, Spinner } from '@/components/ui';
 import { DurationSelector } from './DurationSelector';
 import { WindowResult } from './WindowResult';
 import { CleanEnergyStrip } from './CleanEnergyStrip';

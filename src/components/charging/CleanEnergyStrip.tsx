@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { clsx } from 'clsx';
 import { useTranslation } from 'react-i18next';
-import { useTimezone } from '../../hooks';
-import { formatTime, localeFor } from '../../utils/date';
-import type { ChargingWindowResult } from '../../types/energy';
+import { useTimezone } from '@/hooks';
+import { formatTime, localeFor } from '@/utils/date';
+import type { ChargingWindowResult } from '@/types/energy';
 
 const HALF_HOUR_MS = 30 * 60 * 1000;
 

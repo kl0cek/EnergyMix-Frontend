@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import { TimezoneContext } from '../context/TimezoneContext';
-import type { TimezoneContextValue } from '../context/TimezoneContext';
+import { TimezoneContext } from '@/context/TimezoneContext';
+import type { TimezoneContextValue } from '@/context/TimezoneContext';
 
 export function useTimezone(): TimezoneContextValue {
   const context = useContext(TimezoneContext);

@@ -1,5 +1,5 @@
-import { fetchEnergyMix } from '../api/energyApi';
-import type { DailyEnergyMix } from '../types/energy';
+import { fetchEnergyMix } from '@/api/energyApi';
+import type { DailyEnergyMix } from '@/types/energy';
 import type { AsyncStatus } from './types';
 import { useLiveQuery } from './useLiveQuery';
 
